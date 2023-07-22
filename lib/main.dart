@@ -26,10 +26,7 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
-List photosList =
-['https://firebasestorage.googleapis.com/v0/b/fir-project-6bac0.appspot.com/o/1.png?alt=media&token=584a15a6-abab-4a1a-b034-fd4e03a8f24a',
-'https://firebasestorage.googleapis.com/v0/b/fir-project-6bac0.appspot.com/o/2.png?alt=media&token=66dfa926-a49c-4cee-b4f3-7b1b156203c5',
-'https://firebasestorage.googleapis.com/v0/b/fir-project-6bac0.appspot.com/o/3.png?alt=media&token=848b6dfd-7c21-42da-a5ab-7ca4d0b5e12d'];
+List photosList = ['assets/1.png','assets/2.png','assets/3.png'];
 List titile = [
   'Fulfillment',
   'Distribution',
@@ -55,45 +52,50 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: (){
           appExt.push(const SignInPage(), context);
         },
-        child: Container(
-          margin:  EdgeInsets.fromLTRB(320, 30, 0, 79),
-          width:  58,
-          height:  28,
-          decoration:  BoxDecoration (
-            borderRadius:  BorderRadius.circular(4),
-          ),
-          child:
-          Container(
-            // group12eMK (1:189)
-            width:  double.infinity,
-            height:  double.infinity,
-            decoration:  BoxDecoration (
-                border:  Border.all(color: Color(0xff000000)),
-            color:  Color(0xff43b8c1),
-            borderRadius:  BorderRadius.circular(4),
-            boxShadow:  [
-              BoxShadow(
-                color:  Color(0xff000000),
-                offset:  Offset(2, 2),
-                blurRadius:  0,
+        child: Align(
+           alignment: Alignment.topRight,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width:  58,
+              height:  28,
+              decoration:  BoxDecoration (
+                borderRadius:  BorderRadius.circular(4),
               ),
-            ],
-          ),
-          child: Center(
-            child:
-            Text(
-              'SKIP',
-              textAlign:  TextAlign.center,
-              style:GoogleFonts.lato(
-                fontSize:  15,
-                fontWeight:  FontWeight.w400,
-                height:  1.3289999644,
-                color:  Color(0xff000000),
-              )
+              child:
+              Container(
+                // group12eMK (1:189)
+                width:  double.infinity,
+                height:  double.infinity,
+                decoration:  BoxDecoration (
+                    border:  Border.all(color: Color(0xff000000)),
+                color:  Color(0xff43b8c1),
+                borderRadius:  BorderRadius.circular(4),
+                boxShadow:  [
+                  BoxShadow(
+                    color:  Color(0xff000000),
+                    offset:  Offset(2, 2),
+                    blurRadius:  0,
+                  ),
+                ],
+              ),
+              child: Center(
+                child:
+                Text(
+                  'SKIP',
+                  textAlign:  TextAlign.center,
+                  style:GoogleFonts.lato(
+                    fontSize:  15,
+                    fontWeight:  FontWeight.w400,
+                    height:  1.3289999644,
+                    color:  Color(0xff000000),
+                  )
+                ),
+              ),
             ),
+    ),
           ),
         ),
-    ),
       ),
               Expanded(
                 child: PageView.builder(
@@ -110,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     itemBuilder:(context,index) {
                       return Column(
                         children: [
-                          Image.network(photosList[index]),
+                          Image.asset(photosList[index]),
                           Container(
                             // fulfillmentwgq (1:136)
                             margin:  EdgeInsets.fromLTRB(0, 0, 1, 15),
@@ -126,26 +128,20 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          Positioned(
-                            // withthehelpofourprofessionalte (1:137)
-                            left:  0,
-                            top:  0,
+                          Align(
                             child:
-                            Align(
+                            SizedBox(
+                              width:  331,
+                              height:  120,
                               child:
-                              SizedBox(
-                                width:  331,
-                                height:  120,
-                                child:
-                                Text(
-                                  subTitle[index],
-                                  textAlign:  TextAlign.center,
-                                  style:  GoogleFonts.lato (
-                                    fontSize:  15,
-                                    fontWeight:  FontWeight.w400,
-                                    height:  1.3289999644,
-                                    color:  Color(0xff000000),
-                                  ),
+                              Text(
+                                subTitle[index],
+                                textAlign:  TextAlign.center,
+                                style:  GoogleFonts.lato (
+                                  fontSize:  15,
+                                  fontWeight:  FontWeight.w400,
+                                  height:  1.3289999644,
+                                  color:  Color(0xff000000),
                                 ),
                               ),
                             ),

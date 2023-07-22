@@ -1,7 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stack/account_with_stash.dart';
+import 'package:stack/add_b2b_customer.dart';
+import 'package:stack/add_order_details.dart';
+import 'package:stack/address.dart';
+import 'package:stack/b2b_order_view.dart';
+import 'package:stack/b2borders.dart';
+import 'package:stack/btoc_orders.dart';
+import 'package:stack/custom_text_feild.dart';
+import 'package:stack/edit_b2b_orders.dart';
+import 'package:stack/edit_product_details.dart';
+import 'package:stack/enter_product_details.dart';
+import 'package:stack/exchange_orders.dart';
 import 'package:stack/forgot_password.dart';
+import 'package:stack/home_screen.dart';
+import 'package:stack/inbound.dart';
+import 'package:stack/inbound_order_view.dart';
+import 'package:stack/inventory_tracking.dart';
+import 'package:stack/my_b2b_customers.dart';
+import 'package:stack/my_stashed_inventory.dart';
+import 'package:stack/my_stashed_inventory1.dart';
+import 'package:stack/my_stashed_inventory2.dart';
+import 'package:stack/my_websites.dart';
+import 'package:stack/new_order.dart';
+import 'package:stack/orderview.dart';
+import 'package:stack/return_orders.dart';
+import 'package:stack/search_bottomsheet.dart';
+import 'package:stack/self_delivery.dart';
 import 'package:stack/utils.dart';
+
+import 'edit_b2c_orders.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -19,7 +47,7 @@ class SignInPage extends StatelessWidget {
                 child: SizedBox(
                   width: 275,
                     height: 334,
-                    child: Image.network('https://firebasestorage.googleapis.com/v0/b/fir-project-6bac0.appspot.com/o/Screenshot%202023-07-19%20211945.png?alt=media&token=8411cf2b-3a74-45a3-800b-c11c2ab93f25')),
+                    child: Image.asset('assets/Screenshot 2023-07-19 211945.png')),
               ),
               Container(
                 // useyourregisteredemailpassword (0:171)
@@ -40,72 +68,74 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               Center(
-                  child : Container(
-                      margin:  EdgeInsets.fromLTRB(0, 0, 4, 0),
-                      padding:  EdgeInsets.fromLTRB(20, 16, 30, 10),
-                      width:  double.infinity,
-                      height: 75,
-                      child: TextField(
-                        autocorrect: true,
-                        decoration: InputDecoration(
-                          hintText: 'Email Address',
-                          suffixIcon: Icon(Icons.email),
-                          hintStyle:  GoogleFonts.lato (
-                            fontSize:  14,
-                            fontWeight:  FontWeight.w400,
-                            height:  1.2,
-                            color:  Color(0xff000000),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white70,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                            borderSide: BorderSide(color: Color(0xff43b8c1), width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                            borderSide: BorderSide(color: Color(0xff43b8c1), width: 2),
-                          ),
-                        ),)
+                  child : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        width: 360,
+                        child: TextField(
+                          autocorrect: true,
+                          decoration: InputDecoration(
+                            hintText: 'Email Address',
+                            suffixIcon: Icon(Icons.email),
+                            hintStyle:  GoogleFonts.lato (
+                              fontSize:  14,
+                              fontWeight:  FontWeight.w400,
+                              height:  1.2,
+                              color:  Color(0xff000000),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white70,
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              borderSide: BorderSide(color: Color(0xff43b8c1), width: 2),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              borderSide: BorderSide(color: Color(0xff43b8c1), width: 2),
+                            ),
+                          ),)
+                    ),
                   )),
               Center(
-                  child : Container(
-                      margin:  EdgeInsets.fromLTRB(0, 0, 4, 0),
-                      padding:  EdgeInsets.fromLTRB(20, 16, 30, 10),
-                      width:  double.infinity,
-                      height: 75,
-                      child: TextField(
-                        autocorrect: true,
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          suffixIcon: Icon(Icons.key),
-                          hintStyle:  GoogleFonts.lato (
-                            fontSize:  14,
-                            fontWeight:  FontWeight.w400,
-                            height:  1.2,
-                            color:  Color(0xff000000),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white70,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                            borderSide: BorderSide(color: Colors.black, width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                            borderSide: BorderSide(color: Color(0xff43b8c1), width: 2),
-                          ),
-                        ),)
+                  child : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        width:  360,
+                        child: TextField(
+                          autocorrect: true,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            suffixIcon: Icon(Icons.key),
+                            hintStyle:  GoogleFonts.lato (
+                              fontSize:  14,
+                              fontWeight:  FontWeight.w400,
+                              height:  1.2,
+                              color:  Color(0xff000000),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white70,
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              borderSide: BorderSide(color: Colors.black, width: 2),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                              borderSide: BorderSide(color: Color(0xff43b8c1), width: 2),
+                            ),
+                          ),)
+                    ),
                   )),
               Padding(
-                padding: const EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: 48,
                   width: 360,
+                  height: 50,
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                     color:Color(0xff000000),
-                    onPressed: (){},child: Center(
+                    onPressed: (){
+                      appExt.push(MyHomePage(), context);
+                    },child: Center(
                     child:
                     Text(
                       'Sign In',

@@ -25,7 +25,7 @@ class ForgotPassword extends StatelessWidget {
                 child: SizedBox(
                     width: 275,
                     height: 334,
-                    child: Image.network('https://firebasestorage.googleapis.com/v0/b/fir-project-6bac0.appspot.com/o/Screenshot%202023-07-19%20212001.png?alt=media&token=303461e8-43ad-4449-acdf-b4cfa0316799')),
+                    child: Image.asset('assets/Screenshot 2023-07-19 212001.png')),
               ),
               Container(
                 // useyourregisteredemailpassword (0:171)
@@ -161,14 +161,15 @@ class ForgotPassword extends StatelessWidget {
                   )),
 
               Padding(
-                padding: const EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: 48,
                   width: 360,
+                  height: 50,
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                     color:Color(0xff000000),
-                    onPressed: (){},child: Center(
+                    onPressed: (){
+                    },child: Center(
                     child:
                     Text(
                       'Reset Password',
@@ -182,6 +183,7 @@ class ForgotPassword extends StatelessWidget {
                   ),),
                 ),
               ),
+
             ],
           ),
         ),
