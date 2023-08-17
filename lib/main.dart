@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stack/sign_in.dart';
 import 'package:stack/utils.dart';
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.put(Dio());
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(),

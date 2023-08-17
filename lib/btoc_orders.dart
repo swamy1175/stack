@@ -160,89 +160,88 @@ class B2COrders extends StatelessWidget {
             }, icon: Icon(Icons.search,size: 30,color: Colors.black,)),
         InkWell(
           onTap: ()async{
-            Future.delayed(Duration(seconds: 0)).then((value) {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Text(
-                            'PLEASE SELECT\nMATERIAL SENDING\nMETHOD',
-                            textAlign: TextAlign.center,
-                            style:  GoogleFonts.lato (
-                              fontSize:  20,
-                              fontWeight:  FontWeight.w900,
-                              height:  1.2,
-                              color:  Color(0xff000000),
-                            ),
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          'PLEASE SELECT\nMATERIAL SENDING\nMETHOD',
+                          textAlign: TextAlign.center,
+                          style:  GoogleFonts.lato (
+                            fontSize:  20,
+                            fontWeight:  FontWeight.w900,
+                            height:  1.2,
+                            color:  Color(0xff000000),
                           ),
                         ),
-                        SizedBox(height: 30,),
-                        InkWell(
-                          onTap:()async{
-                            await appExt.push(SelfDelivery(), context);
-                            Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Center(
-                              child: Container(
-                                width: 240,
-                                height: 112,
-                                decoration: BoxDecoration(
-
-                                  border: Border.all(color: Color(0xff000000)),
-                                  color: Color(0xff43b8c1),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Image.asset('assets/Self Delivery.png'),
-                                      Image.asset('assets/Group 119.png'),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap:()async{
-                            await appExt.push(AddOrderDetails(), context);
-                            Navigator.pop(context);
-                          },
+                      ),
+                      SizedBox(height: 30,),
+                      InkWell(
+                        onTap:()async{
+                          await appExt.push(SelfDelivery(), context);
+                          Navigator.pop(context);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: Center(
                             child: Container(
                               width: 240,
                               height: 112,
                               decoration: BoxDecoration(
+
                                 border: Border.all(color: Color(0xff000000)),
                                 color: Color(0xff43b8c1),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Row(
+                                child: Column(
                                   children: [
-                                    Image.asset('assets/Group 121.png'),
-                                    Image.asset('assets/Pickup Required.png'),
+                                    Image.asset('assets/Self Delivery.png'),
+                                    Image.asset('assets/Group 119.png'),
                                   ],
                                 ),
                               ),
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-              );    });
+                        ),
+                      ),
+                      InkWell(
+                        onTap:()async{
+                          await appExt.push(AddOrderDetails(), context);
+                          Navigator.pop(context);
+                        },
+                        child: Center(
+                          child: Container(
+                            width: 240,
+                            height: 112,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Color(0xff000000)),
+                              color: Color(0xff43b8c1),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Image.asset('assets/Group 121.png'),
+                                  Image.asset('assets/Pickup Required.png'),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
+            );
           },
           child: Container(
             decoration:  BoxDecoration (
