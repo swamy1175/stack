@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:stack/model/b2c_order_model.dart';
 import 'package:stack/model/orders_model.dart';
@@ -18,11 +20,11 @@ class HomeRepo{
 
   }
 
-  Future<OutBoundOrdersModel> outBoundOrders() async {
+  Future<OutBoundOrderModel> outBoundOrders() async {
     var response = await _dio.get('http://38.89.140.3:9999/dashboard_recentorders?C_BPartner_ID=1004498');
     if(response.statusCode==200){
-      print('response $response');
-      return OutBoundOrdersModel.fromJson(response.data[0]);
+      print('response11 $response');
+      return OutBoundOrderModel.fromJson(jsonDecode(response.data));
     }else{
       throw Exception('cement not found');
     }

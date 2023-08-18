@@ -8,6 +8,7 @@ import 'package:stack/b2borders.dart';
 import 'package:stack/btoc_orders.dart';
 import 'package:stack/controller/home_controller.dart';
 import 'package:stack/drawer.dart';
+import 'package:stack/model/out_bounde_order_model.dart';
 import 'package:stack/my_b2b_customers.dart';
 import 'package:stack/my_websites.dart';
 import 'package:stack/repo/repository.dart';
@@ -256,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         body:Obx(() {
-            return homeController.isLoading.value ? Center(child: CircularProgressIndicator(color: Colors.indigoAccent,strokeWidth:1,)) : SingleChildScrollView(
+            return homeController.isLoading.value ? Center(child: CircularProgressIndicator(color: Colors.white,backgroundColor: Colors.indigo,)) : SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Column(
@@ -1189,6 +1190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         shrinkWrap: true,
                         itemCount: homeController.outBoundOrderList.length,
                           itemBuilder: (context,index){
+                          OutBoundData data = homeController.outBoundOrderList[index];
                           print('aaaa ${homeController.outBoundOrderList.length}');
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -1215,7 +1217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       // yourealmosttheredmF (1:429)
                                       margin: EdgeInsets.fromLTRB(0, 0, 6, 2.5),
                                       child: Text(
-                                        homeController.outBoundOrderList[0].productname.toString(),
+                                        data.ProductName.toString(),
                                         style: GoogleFonts.lato(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w900,
@@ -1262,7 +1264,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       ),
                                                       Text(
                                                         // titleGSq (1:433)
-                                                          homeController.outBoundOrderList[0].documentno.toString(),
+                                                          data.ProductSKU,
                                                         style: GoogleFonts.lato(
                                                           fontSize: 13,
                                                           fontWeight: FontWeight.w900,
@@ -1295,7 +1297,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       ),
                                                       Text(
                                                         // title6Rs (1:437)
-                                                        homeController.outBoundOrderList[0].movementdate.toString(),
+                                                        data.DateTrx,
                                                         style: GoogleFonts.lato(
                                                           fontSize: 13,
                                                           fontWeight: FontWeight.w900,
@@ -1360,7 +1362,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                         width: 25,
                                                         height: 17,
                                                         child: Text(
-                                                          homeController.outBoundOrderList[0].qty.toString(),
+                                                          data.Qty.toString(),
                                                           textAlign: TextAlign.center,
                                                           style: GoogleFonts.lato(
                                                             fontSize: 14,
@@ -1409,7 +1411,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 ),
                                                 Text(
                                                   // titleLN9 (1:449)
-                                                  homeController.outBoundOrderList[0].documenttype.toString(),
+                                                  data.DocumentType,
                                                   style: GoogleFonts.lato(
                                                     fontSize: 13,
                                                     fontWeight: FontWeight.w900,
@@ -1443,7 +1445,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 ),
                                                 Text(
                                                   // titleLmT (1:441)
-                                                  homeController.outBoundOrderList[0].shipto.toString(),
+                                                  data.ShipTo,
                                                   style: GoogleFonts.lato(
                                                     fontSize: 13,
                                                     fontWeight: FontWeight.w900,
@@ -1476,7 +1478,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 ),
                                                 Text(
                                                   // titleMRf (1:445)
-                                                  homeController.outBoundOrderList[0].sku.toString(),
+                                                  data.ProductSKU,
                                                   style: GoogleFonts.lato(
                                                     fontSize: 13,
                                                     fontWeight: FontWeight.w900,

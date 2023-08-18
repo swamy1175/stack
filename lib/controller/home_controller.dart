@@ -10,7 +10,7 @@ class HomeController extends GetxController{
   final HomeRepo homeRepo;
   HomeController(this.homeRepo);
   RxList<OrdersModel> orderList = <OrdersModel>[].obs;
-  RxList<OutBoundOrdersModel> outBoundOrderList = <OutBoundOrdersModel>[].obs;
+  RxList<OutBoundData> outBoundOrderList = <OutBoundData>[].obs;
   RxList<ModelClass> b2bList = <ModelClass>[].obs;
   RxList<ModelClass> b2cList = <ModelClass>[].obs;
   RxList<ModelClass> returnList = <ModelClass>[].obs;
@@ -41,7 +41,7 @@ class HomeController extends GetxController{
     isLoading.value=true;
     return await homeRepo.outBoundOrders().then((value){
       if(value!=null){
-        outBoundOrderList.add(value);
+        outBoundOrderList.addAll(value.data);
       }
       isLoading.value=false;
     });

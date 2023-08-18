@@ -1,53 +1,57 @@
-class OutBoundOrdersModel {
-  late final String? documentno;
-  late final String? movementdate;
-  late final String? documenttype;
-  late final String? shipto;
-  late final String? sku;
-  late final String? productname;
-  late final String? lotno;
-  late final String? serialno;
-  late final String? expirydate;
-  late final int? qty;
-
-  OutBoundOrdersModel({
-        required this.documentno,
-        required this.movementdate,
-        required this.documenttype,
-        required this.shipto,
-        required this.sku,
-        required this.productname,
-        required this.lotno,
-        required this.serialno,
-        required this.expirydate,
-        required this.qty
+class OutBoundOrderModel {
+  OutBoundOrderModel({
+    required this.data,
   });
+  late final List<OutBoundData> data;
 
-  OutBoundOrdersModel.fromJson(Map<String, dynamic> json) {
-    documentno = json['documentno'];
-    movementdate = json['movementdate'];
-    documenttype = json['documenttype'];
-    shipto = json['shipto'];
-    sku = json['sku'];
-    productname = json['productname'];
-    lotno = json['lotno'];
-    serialno = json['serialno'];
-    expirydate = json['expirydate'];
-    qty = json['qty'];
+  OutBoundOrderModel.fromJson(Map<String, dynamic> json){
+    data = List.from(json['data']).map((e)=>OutBoundData.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['documentno'] = this.documentno;
-    data['movementdate'] = this.movementdate;
-    data['documenttype'] = this.documenttype;
-    data['shipto'] = this.shipto;
-    data['sku'] = this.sku;
-    data['productname'] = this.productname;
-    data['lotno'] = this.lotno;
-    data['serialno'] = this.serialno;
-    data['expirydate'] = this.expirydate;
-    data['qty'] = this.qty;
-    return data;
+    final _data = <String, dynamic>{};
+    _data['data'] = data.map((e)=>e.toJson()).toList();
+    return _data;
+  }
+}
+
+class OutBoundData {
+  OutBoundData({
+    required this.ProductSKU,
+    required this.DateTrx,
+    required this.ProductName,
+    required this.Qty,
+    required this.DocumentType,
+    required this.ShipTo,
+    required this.DateOrdered,
+  });
+  late final String ProductSKU;
+  late final String DateTrx;
+  late final String ProductName;
+  late final int Qty;
+  late final String DocumentType;
+  late final String ShipTo;
+  late final String DateOrdered;
+
+  OutBoundData.fromJson(Map<String, dynamic> json){
+    ProductSKU = json['ProductSKU'] as String;
+    DateTrx = json['DateTrx'] as String;
+    ProductName = json['ProductName'] as String;
+    Qty = json['Qty'];
+    DocumentType = json['DocumentType'] as String;
+    ShipTo = json['ShipTo'] as String;
+    DateOrdered = json['DateOrdered'] as String;
+  }
+
+  Map<String, dynamic> toJson() {
+    final _data = <String, dynamic>{};
+    _data['ProductSKU'] = ProductSKU;
+    _data['DateTrx'] = DateTrx;
+    _data['ProductName'] = ProductName;
+    _data['Qty'] = Qty;
+    _data['DocumentType'] = DocumentType;
+    _data['ShipTo'] = ShipTo;
+    _data['DateOrdered'] = DateOrdered;
+    return _data;
   }
 }
