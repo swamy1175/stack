@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+            git branch: 'main', url: 'https://github.com/swamy1175/stack.git'
                 // Checkout your Flutter project from version control
-                checkout([branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/swamy1175/stack.git']]])
             }
         }
 
