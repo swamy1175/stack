@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/swamy1175/stack']]])
+                checkout([branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/swamy1175/stack.git']]])
             }
         }
          stage('Test') {
