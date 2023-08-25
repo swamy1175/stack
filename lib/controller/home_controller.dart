@@ -40,6 +40,7 @@ class HomeController extends GetxController{
   Future getOutBoundOrders() async {
     isLoading.value=true;
     return await homeRepo.outBoundOrders().then((value){
+      outBoundOrderList.clear();
       if(value!=null){
         outBoundOrderList.addAll(value.data);
       }
