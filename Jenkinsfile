@@ -11,7 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Flutter dependencies
-                        sh"${env.SOURCE}; dart pub get" 
+                        sh" flutter run" 
             }
         }
 
