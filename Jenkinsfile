@@ -8,13 +8,6 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                // Install Flutter dependencies
-                        sh" flutter run" 
-            }
-        }
-
 
     }
 
