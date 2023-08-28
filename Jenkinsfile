@@ -9,12 +9,12 @@ pipeline {
         }
          stage ('Flutter Doctor') {
             steps {
-                sh "flutter doctor -v"
+                bat "flutter doctor -v"
             }
         }
         stage ('Flutter Build APK') {
             steps {
-                sh "flutter build apk --split-per-abi"
+                 bat "flutter build apk --split-per-abi"
             }
         }
     }
@@ -22,7 +22,7 @@ pipeline {
     post {
         always {
             // Clean up any build artifacts or temporary files
-                            sh "flutter clean"
+                            bat "flutter clean"
             cleanWs()
         }
     }
