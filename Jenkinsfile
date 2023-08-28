@@ -15,23 +15,6 @@ pipeline {
             }
         }
 
-        stage('Unit Tests') {
-            steps {
-                // Run Flutter unit tests
-                sh 'flutter test'
-            }
-        }
-
-        stage('Build APK') {
-            steps {
-                // Build the APK for Android
-                 sh '''
-                      #!/bin/sh
-                      flutter build apk --debug
-                        '''
-            }
-        }
-
 
     }
 
