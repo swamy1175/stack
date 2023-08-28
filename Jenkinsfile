@@ -25,8 +25,10 @@ pipeline {
         stage('Build APK') {
             steps {
                 // Build the APK for Android
-                sh 'flutter build apk'
-                archiveArtifacts artifacts: '**/build/app/outputs/flutter-apk/*.apk', allowEmptyArchive: true
+                 sh '''
+                      #!/bin/sh
+                      flutter build apk --debug
+                        '''
             }
         }
 
