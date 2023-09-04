@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('GIT PULL') {
             steps {
-                git branch: "main", url: 'https://github.com/RanaRanvijaySingh/FlutterStarter.git'
+                git branch: "main", url: 'https://github.com/swamy1175/stack.git'
             }
         }
         stage('TEST') {
