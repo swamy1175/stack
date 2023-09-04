@@ -6,12 +6,7 @@ pipeline {
             git branch: 'main', url: 'https://github.com/swamy1175/stack.git'
                 // Checkout your Flutter project from version control
             }
-        }steps {
-      withEnv(["PATH+FLUTTER=FLUTTER_PATH"]) {
-                echo "PATH is: $PATH"
-                    sh 'flutter'
-                          }
-                        }
+        }
          stage ('Flutter Doctor') {
             steps {
                 sh "flutter doctor -v"
