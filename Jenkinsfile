@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        flutter = "C:\src\flutter_windows_2.10.4-stable\flutter"
+    }
     stages {
         stage('Checkout') {
             steps {
