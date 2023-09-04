@@ -1,19 +1,10 @@
-pipeline {
-    agent any
-    environment {
-      PATH = "$PATH:/foo/bar/flutter/bin"
-    }    
-    stages {
-        stage('Setup') {
-            steps {
-                print "${env.PATH}"
-            }    
-        }
-        
-        stage('Build') {
-            steps {
-                sh "flutter doctor -v"
-            }
-        }        
-    }
+
+node {   
+  print "${env.PATH}"
+
+  def FLUTTER_HOME = "/foo/bar/flutter/bin"
+  env.PATH = env.PATH+":$FLUTTER_HOME/bin"
+  print "${env.PATH}"
+
+  sh "flutter doctor -v"
 }
