@@ -9,12 +9,17 @@ pipeline {
         }
          stage ('Flutter Doctor') {
             steps {
-                bat "flutter doctor -v"
+                sh "flutter doctor -v"
+            }
+        }
+         stage ('Flutter Build APK') {
+            steps {
+                 sh "flutter pub get"
             }
         }
         stage ('Flutter Build APK') {
             steps {
-                 bat "flutter build apk --split-per-abi"
+                 sh "flutter build apk --split-per-abi"
             }
         }
     }
