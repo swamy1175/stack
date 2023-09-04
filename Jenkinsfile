@@ -8,14 +8,13 @@ pipeline {
             }
         }
         stage('BUILD') {
-  steps {
-    sh '''
-      #!/bin/sh
-      flutter build apk --debug
-    '''
-  }
-}
-
+          steps {
+                sh '''
+                  #!/bin/sh
+                      flutter build apk --debug
+                    '''
+                  }
+                    }
     post {
         always {
             // Clean up any build artifacts or temporary files
