@@ -15,6 +15,8 @@ pipeline {
                     '''
                   }
                     }
+    }
+        
     post {
         always {
             // Clean up any build artifacts or temporary files
@@ -22,5 +24,4 @@ pipeline {
             cleanWs()
         }
     }
-}
 }
