@@ -12,7 +12,7 @@ pipeline {
                 sh "flutter doctor -v"
             }
         }
-         stage ('Flutter Build APK') {
+         stage ('Flutter Dependency') {
             steps {
                  sh "flutter pub get"
             }
