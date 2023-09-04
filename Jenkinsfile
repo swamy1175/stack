@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+  PATH = "$PATH:/foo/bar/flutter/bin"
+}  
 
     stages {
         stage('GIT PULL') {
