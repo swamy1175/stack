@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-  PATH = "$PATH:/foo/bar/flutter/bin"
-}  
 
     stages {
         stage('GIT PULL') {
@@ -11,7 +8,7 @@ pipeline {
             }
         }
         stage('TEST') {
-            steps {
+            steps withEnv(['PATH+EXTRA=\src\flutter_windows_2.10.4-stable\flutter\bin']) {
                 sh 'flutter doctor -v'
             }
         }
