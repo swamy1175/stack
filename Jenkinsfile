@@ -1,27 +1,24 @@
 pipeline {
     agent any
+
     stages {
-        stage('Checkout') {
+        stage('GIT PULL') {
             steps {
-            git branch: 'main', url: 'https://github.com/swamy1175/stack.git'
-                // Checkout your Flutter project from version control
+                git branch: "main", url: 'https://github.com/RanaRanvijaySingh/FlutterStarter.git'
+            }
+        }
+        stage('TEST') {
+            steps {
+                sh 'flutter test'
             }
         }
         stage('BUILD') {
-          steps {
+            steps {
                 sh '''
                   #!/bin/sh
-                      flutter build apk --debug
-                    '''
-                  }
-                    }
-    }
-        
-    post {
-        always {
-            // Clean up any build artifacts or temporary files
-                            sh "flutter clean"
-            cleanWs()
+                  flutter build apk --debug
+                  '''
+            }
         }
     }
 }
