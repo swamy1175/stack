@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('TEST') {
-            steps withEnv(['PATH+EXTRA=\src\flutter_windows_2.10.4-stable\flutter\bin']) {
+            steps withEnv(['PATH+EXTRA=$PATH\src\flutter_windows_2.10.4-stable\flutter\bin']) {
                 sh 'flutter doctor -v'
             }
         }
