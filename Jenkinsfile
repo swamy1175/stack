@@ -7,17 +7,14 @@ pipeline {
                 // Checkout your Flutter project from version control
             }
         }
-         stage ('Flutter Dependency') {
-            steps {
-                 sh "flutter pub get"
-            }
-        }
-        stage ('Flutter Build APK') {
-            steps {
-                 sh "flutter build apk --split-per-abi"
-            }
-        }
-    }
+        stage('BUILD') {
+  steps {
+    sh '''
+      #!/bin/sh
+      flutter build apk --debug
+    '''
+  }
+}
 
     post {
         always {
