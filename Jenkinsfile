@@ -7,11 +7,6 @@ pipeline {
                 // Checkout your Flutter project from version control
             }
         }
-         stage ('Flutter Doctor') {
-            steps {
-                sh "flutter doctor -v"
-            }
-        }
          stage ('Flutter Dependency') {
             steps {
                  sh "flutter pub get"
@@ -27,7 +22,7 @@ pipeline {
     post {
         always {
             // Clean up any build artifacts or temporary files
-                            bat "flutter clean"
+                            sh "flutter clean"
             cleanWs()
         }
     }
