@@ -1,16 +1,19 @@
 pipeline {
     agent any
-
+    environment {
+      PATH = "$PATH:/tmp/workspace/flutter/bin"
+    }    
     stages {
-        stage('GIT PULL') {
+        stage('Setup') {
             steps {
-                git branch: "main", url: 'https://github.com/swamy1175/stack.git'
-            }
+                print "${env.PATH}"
+            }    
         }
-        stage('TEST') {
-            steps withEnv(['PATH+EXTRA=$PATH/src/flutter_windows_2.10.4-stable/flutter/bin']) {
-                sh 'flutter doctor -v'
+        
+        stage('Build') {
+            steps {
+                sh "flutter doctor -v"
             }
-        }
+        }        
     }
 }
