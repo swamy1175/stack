@@ -5,5 +5,5 @@ node {
   env.PATH = env.PATH+":$FLUTTER_HOME/bin"
   print "${env.PATH}"
 
-  sh "flutter doctor -v"
+  sh "flutter --version"
 }
