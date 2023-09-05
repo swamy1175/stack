@@ -1,8 +1,7 @@
-
 node {   
   print "${env.PATH}"
 
-  def FLUTTER_HOME = "/foo/bar/flutter/bin"
+  def FLUTTER_HOME = "/tmp/workspace/flutter"
   env.PATH = env.PATH+":$FLUTTER_HOME/bin"
   print "${env.PATH}"
 
